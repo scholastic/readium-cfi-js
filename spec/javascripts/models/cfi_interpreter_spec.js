@@ -258,7 +258,9 @@ describe('CFI INTERPRETER OBJECT', function () {
                 contentDocument
                 );
             expect(rangeInfo.startElement.nodeType).toBe(Node.TEXT_NODE);
+            expect(rangeInfo.startOffset).toBe(4);
             expect(rangeInfo.endElement.nodeType).toBe(Node.TEXT_NODE);
+            expect(rangeInfo.endOffset).toBe(7);
             expect(rangeInfo.startElement).toBe(rangeInfo.endElement);
         });
 
@@ -272,7 +274,9 @@ describe('CFI INTERPRETER OBJECT', function () {
                 contentDocument
                 );
             expect(rangeInfo.startElement.id).toBe(targetElement1);
+            expect(rangeInfo.startOffset).toBe(0);
             expect(rangeInfo.endElement.id).toBe(targetElement2);
+            expect(rangeInfo.endOffset).toBe(0);
         });
 
         it('can return target nodes when the targets are different text nodes', function () {
@@ -285,7 +289,9 @@ describe('CFI INTERPRETER OBJECT', function () {
                 contentDocument
                 );
             expect(rangeInfo.startElement.nodeType).toBe(Node.TEXT_NODE);
+            expect(rangeInfo.startOffset).toBe(4);
             expect(rangeInfo.endElement.nodeType).toBe(Node.TEXT_NODE);
+            expect(rangeInfo.endOffset).toBe(7);
             expect(rangeInfo.startElement).not.toBe(rangeInfo.endElement);
         });
 
@@ -299,7 +305,9 @@ describe('CFI INTERPRETER OBJECT', function () {
                 contentDocument
                 );
             expect(rangeInfo.startElement.id).toBe(targetElement1);
+            expect(rangeInfo.startOffset).toBe(0);
             expect(rangeInfo.endElement.id).toBe(targetElement2);
+            expect(rangeInfo.endOffset).toBe(0);
         });
     });
 
