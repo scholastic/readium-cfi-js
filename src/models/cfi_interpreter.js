@@ -220,6 +220,16 @@ EPUBcfi.Interpreter = {
             };
     },
 
+    // Description: This function will determine if the input CFI is expressed as a range
+    isRangeCfi: function (cfi) {
+        try {
+            var CFIAST = EPUBcfi.Parser.parse(cfi);
+            return CFIAST.cfiString.range1 ? true : false;
+        } catch (ex) {
+            return undefined;
+        }
+    },
+
     // ------------------------------------------------------------------------------------ //
     //  "PRIVATE" HELPERS                                                                   //
     // ------------------------------------------------------------------------------------ //
