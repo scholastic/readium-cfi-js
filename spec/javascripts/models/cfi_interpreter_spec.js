@@ -309,6 +309,18 @@ describe('CFI INTERPRETER OBJECT', function () {
             expect(rangeInfo.endElement.id).toBe(targetElement2);
             expect(rangeInfo.endOffset).toBe(0);
         });
+
+        it('can determine a range CFI as true', function() {
+            var CFI = "epubcfi(/6/14!/4,/2/14,/2/16)";
+
+            expect(EPUBcfi.Interpreter.isRangeCfi(CFI)).toBe(true);
+        });
+
+        it('can determine a range CFI as false', function() {
+            var CFI = "epubcfi(/6/14!/4/2/14/1:4)";
+
+            expect(EPUBcfi.Interpreter.isRangeCfi(CFI)).toBe(false);
+        });
     });
 
     describe('The hack zone! Interpretation of partial CFIs', function () {
